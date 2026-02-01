@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff4d6d, #ff85a1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  color: white;
+}
+
+.card {
+  background: rgba(255,255,255,0.2);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.yes {
+  background: white;
+  color: #ff4d6d;
+}
+
+.no {
+  background: #ff4d6d;
+  color: white;
+  position: fixed;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h2>Mehak, will you be my Valentine? 💌</h2>
+  <button class="yes" onclick="yesClick()">Yes 💖</button>
+  <button class="no" id="noBtn">No 💔</button>
+</div>
+
+<audio id="music" src="https://assets.mixkit.co/music/preview/mixkit-love-is-in-the-air-6.mp3"></audio>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const music = document.getElementById("music");
+
+noBtn.addEventListener("touchstart", moveNo);
+noBtn.addEventListener("mouseover", moveNo);
+
+function moveNo() {
+  noBtn.style.left = Math.random() * 80 + "vw";
+  noBtn.style.top = Math.random() * 80 + "vh";
+}
+
+function yesClick() {
+  music.play();
+  document.getElementById("card").innerHTML = `
+    <h2>Congratulations 🎉💖</h2>
+    <p>For being <strong>Sehaj’s Valentine</strong>, Mehak 💕</p>
+  `;
+}
+</script>
+
+</body>
+</html>
